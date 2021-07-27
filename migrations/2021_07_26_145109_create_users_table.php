@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id', 32)->comment('user id, generate by snowflake');
             $table->string('name', 50);
-            $table->string('password', 32);
+            $table->string('password', 32)->nullable();
             $table->string('phone', 15);
 
             $table->string('avatar_url', 500)->nullable();
@@ -47,6 +47,7 @@ class CreateUsersTable extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('users');
     }
 }
